@@ -25,7 +25,7 @@ def get_pipeline(device: Union[str, torch.device]) -> Pipeline:
         raise ValueError("HF_TOKEN environment variable is not set") from exc
 
     _PIPELINE = Pipeline.from_pretrained(
-        "pyannote/voice-activity-detection", use_auth_token=hf_token
+        "pyannote/voice-activity-detection", token=hf_token, revision="main"
     )
 
     return _PIPELINE.to(device)
